@@ -1,9 +1,11 @@
 import React from 'react';
+import MainLayout from './components/layout/MainLayout/MainLayout';
 
 
 function App() {
   return (
-    <div className="App">
+    <MainLayout>
+      <div className="App">
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,6 +20,8 @@ function App() {
         </a>
       </header>
     </div>
+    </MainLayout>
+    
   );
 }
 
