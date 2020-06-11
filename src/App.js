@@ -6,7 +6,7 @@ import Login from './components/views/Login/Login';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Ordering from './components/views/Ordering/Ordering';
 import Tables from './components/views/Tables/Tables';
-import Container from '../Container/Container.js';
+import Container from './components/layout/Container/Container.js';
 
 
 function App() {
