@@ -1,14 +1,23 @@
 import React from 'react';
 import styles from './Tables.scss';
 import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
+import { Container } from '@material-ui/core';
 
 
-const Tables = () => (
-  <div className ={styles.component} >
-    <h2> Tables view</h2>
-    <Link to={`${process.env.PUBLIC_URL}//tables/booking/:id`}></Link>
+
+export default function Tables() {
+return (
+  <div className={styles.component} >
+    <Container >
+      <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+      Tables view
+        </Typography>
+        <Link to={`${process.env.PUBLIC_URL}//tables/booking/:id`}></Link>
     <Link to={`${process.env.PUBLIC_URL}/tables/event/:id`}></Link>
+    </Container>
+
   </div>
 );
-
-export default Tables;
+  
+}
