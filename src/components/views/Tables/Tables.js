@@ -13,8 +13,8 @@ return (
       <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
       Tables view
         </Typography>
-        <Link to={`${process.env.PUBLIC_URL}//tables/booking/:id`}></Link>
-    <Link to={`${process.env.PUBLIC_URL}/tables/event/:id`}></Link>
+        <Link to={`${process.env.PUBLIC_URL}//tables/booking/:id`}>Tables Booking</Link>
+    <Link to={`${process.env.PUBLIC_URL}/tables/event/:id`}>Tables event</Link>
     </Container>
 
   </div>

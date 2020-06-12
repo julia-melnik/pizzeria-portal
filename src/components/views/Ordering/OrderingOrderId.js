@@ -1,13 +1,71 @@
+
 import React from 'react';
-import styles from './Ordering.scss';
-import { Link } from 'react-router-dom';
+import MaterialTable from 'material-table';
 
+export default function OrderingOrderId() {
+  const [state, setState] = React.useState({
+    columns: [
+      { title: 'Order No', field: 'number' },
+      { title: 'Order Type', field: 'type' },
+      { 
+        title: 'Payment status', 
+        field: 'payment',
+        lookup: { 34: 'paid', 63: 'in process' }, 
+      },
+      {
+        title: 'Shipment',
+        field: 'shipment',
+        lookup: { 34: 'local', 63: 'delivery' },
+      },
+    ],
+    data: [
+      { number: '4758', type: 'delivery', payment: 34, shipment: 63 },
+      
+    ],
+  });
 
-const OrderingOrderId = () => (
-  <div className ={styles.component} >
-    <h2> Ordering Status</h2>
-    <Link to={`${process.env.PUBLIC_URL}/ordering/new`}>New Orders</Link>
-  </div>
-);
-
-export default OrderingOrderId;
+  return (
+    <MaterialTable
+      title="Order information"
+      columns={state.columns}
+      data={state.data}
+      editable={{
+        onRowAdd: (newData) =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+              setState((prevState) => {
+                const data = [...prevState.data];
+                data.push(newData);
+                return { ...prevState, data };
+              });
+            }, 600);
+          }),
+        onRowUpdate: (newData, oldData) =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+              if (oldData) {
+                setState((prevState) => {
+                  const data = [...prevState.data];
+                  data[data.indexOf(oldData)] = newData;
+                  return { ...prevState, data };
+                });
+              }
+            }, 600);
+          }),
+        onRowDelete: (oldData) =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+              setState((prevState) => {
+                const data = [...prevState.data];
+                data.splice(data.indexOf(oldData), 1);
+                return { ...prevState, data };
+              });
+            }, 600);
+          }),
+      }}
+    />
+  );
+}
