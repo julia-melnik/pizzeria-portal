@@ -1,3 +1,6 @@
+import Axios from "axios";
+import { api } from "../settings";
+
 /* selectors */
 export const getAllProducts = ({products}) => products.data;
 export const getProductsLoadingState = ({products}) => products.loading;
