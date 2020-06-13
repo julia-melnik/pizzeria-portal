@@ -51,3 +51,21 @@ export default function reducer(statePart = [], action = {}) {
       return statePart;
   }
 }
+
+/* thunk creators */
+export const fetchProductsFromAPI = () => {
+  return (dispatch, getState) => {
+    if(getState().products.data.length == 0){
+      dispatch(fetchProductsStarted());
+
+      Axios
+        .get(`${api.url}/${api.product}`)
+        .then(res => {
+          dispatch(fetchProductsSuccess(res.data));
+        })
+        .catch(err => {
+          dispatch(fetchProductsError(err.message || true));
+        });
+    }
+  };
+};
