@@ -11,10 +11,13 @@ import Tables from './components/views/Tables/Tables';
 import TablesBooking from './components/views/Tables/TablesBooking';
 import TablesEvent from './components/views/Tables/TablesEvent';
 import Container from './components/layout/Container/Container.js';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter basename={'/panel'}>
     <MainLayout>
       <Container>
@@ -32,7 +35,7 @@ function App() {
       </Container>
     </MainLayout>
   </BrowserRouter>
-    
+  </Provider>
   );
 }
 
