@@ -1,13 +1,55 @@
-import React from 'react';
-import styles from './Ordering.scss';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types'
 
+class NewOrder extends React.Component {
+  static propTypes = {
+    fetchProducts: PropTypes.func,
+    loading: PropTypes.shape({
+      active: PropTypes.bool,
+      error: PropTypes.anyOf(PropTypes.bool,PropTypes.string),
+    }),
+  }
 
-const NewOrder = () => (
-  <div className ={styles.component} >
-    <h2>New Order Info </h2>
-    <Link to={`${process.env.PUBLIC_URL}/ordering/order/:id`}>Ordering Status</Link>
-  </div>
-);
+  componentDidMount(){
+    const { fetchProducts } = this.props;
+    fetchProducts();
+  }
+
+  render() {
+    const { loading: { active, error }, products } = this.props;
+
+    const Wrapper = props => (
+      <div>
+        <h2>NewOrder view</h2>
+        {props.children}
+      </div>
+    );
+
+    if(active || !products.length){
+      return (
+        <Wrapper>
+          <p>Loading...</p>
+        </Wrapper>
+      );
+    } else if(error) {
+      return (
+        <Wrapper>
+          <p>Error! Details:</p>
+          <pre>{error}</pre>
+        </Wrapper>
+      );
+    } else {
+      return (
+        <Wrapper>
+          <ul>
+            {products.map(({id, name, price}) => (
+              <li key={id}>{name}, {price}</li>
+            ))}
+          </ul>
+        </Wrapper>
+      );
+    }
+  }
+}
 
 export default NewOrder;

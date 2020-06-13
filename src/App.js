@@ -6,7 +6,7 @@ import Login from './components/views/Login/Login';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Ordering from './components/views/Ordering/Ordering';
 import OrderingOrderId from './components/views/Ordering/OrderingOrderId';
-import NewOrder from './components/views/Ordering/NewOrder';
+import NewOrder from './components/views/Ordering/NewOrderContainer.js';
 import Tables from './components/views/Tables/Tables';
 import TablesBooking from './components/views/Tables/TablesBooking';
 import TablesEvent from './components/views/Tables/TablesEvent';
