@@ -33,7 +33,6 @@ const combinedReducers = combineReducers(reducers);
 const store = createStore(
   combinedReducers,
   initialState,
-  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   composeWithDevTools(
     applyMiddleware(thunk)// będą działać jednocześnie narzędzia developerskie dla Reduksa, jak i Thunk.
   )

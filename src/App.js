@@ -6,7 +6,7 @@ import Login from './components/views/Login/Login';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Ordering from './components/views/Ordering/Ordering';
 import OrderingOrderId from './components/views/Ordering/OrderingOrderId';
-import OrderingNew from './components/views/Ordering/OrderingNew';
+import NewOrder from './components/views/Ordering/NewOrder';
 import Tables from './components/views/Tables/Tables';
 import TablesBooking from './components/views/Tables/TablesBooking';
 import TablesEvent from './components/views/Tables/TablesEvent';
@@ -26,7 +26,7 @@ function App() {
         <Route exact path={process.env.PUBLIC_URL + '/dashboard'} component={Dashboard} />
         <Route exact path={process.env.PUBLIC_URL + '/kitchen'} component={Kitchen} />
         <Route exact path={process.env.PUBLIC_URL + '/ordering'} component={Ordering} />
-        <Route exact path={process.env.PUBLIC_URL + '/ordering/new'} component={OrderingNew} />
+        <Route exact path={process.env.PUBLIC_URL + '/ordering/new'} component={NewOrder} />
         <Route exact path={process.env.PUBLIC_URL + '/ordering/order/:id'} component={OrderingOrderId} />
         <Route exact path={process.env.PUBLIC_URL + '/tables'} component={Tables} />
         <Route exact path={process.env.PUBLIC_URL + '/tables/booking/:id'} component={TablesBooking} />
