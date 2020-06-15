@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header() {
+export default function HeaderLog () {
   const classes = useStyles();
 
   return (
@@ -21,16 +21,14 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <nav>
-            <NavLink exact to={`${process.env.PUBLIC_URL}/login`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}> <Button color="inherit">Login</Button></NavLink>
-           {/*<NavLink to={`${process.env.PUBLIC_URL}/dashboard`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}>Home</NavLink>
+          <NavLink to={`${process.env.PUBLIC_URL}/login`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}> <Button color="inherit">Login</Button></NavLink>
+            <NavLink  to={`${process.env.PUBLIC_URL}/dashboard`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}>Dashboard</NavLink>
             <NavLink to={`${process.env.PUBLIC_URL}/kitchen`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}>Kitchen</NavLink>
             <NavLink to={`${process.env.PUBLIC_URL}/tables`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}>Tables</NavLink>
-            <NavLink to={`${process.env.PUBLIC_URL}/ordering`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}>Ordering</NavLink>*/}
+            <NavLink to={`${process.env.PUBLIC_URL}/ordering`} activeClassName='active' style={{ textDecoration: 'none', color: 'white', margin: 5 }}>Ordering</NavLink>
           </nav>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
-
-

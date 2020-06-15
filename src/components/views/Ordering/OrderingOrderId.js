@@ -1,4 +1,3 @@
-
 import React from 'react';
 import MaterialTable from 'material-table';
 
@@ -7,20 +6,19 @@ export default function OrderingOrderId() {
     columns: [
       { title: 'Order No', field: 'number' },
       { title: 'Order Type', field: 'type' },
-      { 
-        title: 'Payment status', 
+      {
+        title: 'Payment status',
         field: 'payment',
-        lookup: { 34: 'paid', 63: 'in process' }, 
+        lookup: { 1: 'paid', 0: 'in process' },
       },
       {
         title: 'Shipment',
         field: 'shipment',
-        lookup: { 34: 'local', 63: 'delivery' },
+        lookup: { 1: 'local', 0: 'delivery' },
       },
     ],
     data: [
       { number: '4758', type: 'delivery', payment: 34, shipment: 63 },
-      
     ],
   });
 

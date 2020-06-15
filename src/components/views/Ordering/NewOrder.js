@@ -1,16 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+// import styles from './NewOrder.scss';
 
 class NewOrder extends React.Component {
   static propTypes = {
     fetchProducts: PropTypes.func,
+    products: PropTypes.array,
     loading: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.anyOf(PropTypes.bool,PropTypes.string),
+      error: PropTypes.oneOfType(PropTypes.bool, PropTypes.string),
     }),
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const { fetchProducts } = this.props;
     fetchProducts();
   }
@@ -25,13 +27,13 @@ class NewOrder extends React.Component {
       </div>
     );
 
-    if(active || !products.length){
+    if (active || !products.length) {
       return (
         <Wrapper>
           <p>Loading...</p>
         </Wrapper>
       );
-    } else if(error) {
+    } else if (error) {
       return (
         <Wrapper>
           <p>Error! Details:</p>
@@ -42,7 +44,7 @@ class NewOrder extends React.Component {
       return (
         <Wrapper>
           <ul>
-            {products.map(({id, name, price}) => (
+            {products.map(({ id, name, price }) => (
               <li key={id}>{name}, {price}</li>
             ))}
           </ul>

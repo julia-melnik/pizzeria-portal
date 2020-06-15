@@ -7,7 +7,7 @@ import productReducer from './productRedux';
 // define initial state and shallow-merge initial data
 const initialState = {
   products: {
-    loading: {
+    loading: { // zawiera informacje o wczytywaniu danych
       active: false,
       error: false,
     },

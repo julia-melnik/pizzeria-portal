@@ -56,17 +56,17 @@ export default function reducer(statePart = [], action = {}) {
 }
 
 /* thunk creators */
-export const fetchProductsFromAPI = () => {
+export const fetchProductsFromAPI = () => { 
   return (dispatch, getState) => {
     if(getState().products.data.length == 0){
       dispatch(fetchProductsStarted());
 
       Axios
-        .get(`${api.url}/${api.product}`)
-        .then(res => {
+        .get(`${api.url}/${api.product}`) //.get służy do wysyłania zapytań metodą GET
+        .then(res => { //używamy metody .then do zareagowania na odpowiedź serwera
           dispatch(fetchProductsSuccess(res.data));
         })
-        .catch(err => {
+        .catch(err => {//Jeżeli wystąpił błąd połączenia, zamiast funkcji podanej w metodzie .then wykona się funkcja z metody .catch 
           dispatch(fetchProductsError(err.message || true));
         });
     }
