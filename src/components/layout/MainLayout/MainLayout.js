@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => (
     <main>
      
 {(<Link to={`${process.env.PUBLIC_URL}/`}></Link> || <Link to={`${process.env.PUBLIC_URL}/login`}></Link>) ? (
-              <HeaderLog />
+              <Header />
             ) : (
               <HeaderLog/>
             )}
